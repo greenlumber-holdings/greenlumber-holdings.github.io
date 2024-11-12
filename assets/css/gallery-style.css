@@ -1,0 +1,120 @@
+/* Container for centering */
+.container-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Gallery Grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 15px;
+  padding: 20px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  height: 250px; /* Fixed height to ensure all items have the same height */
+  background-color: #f0f0f0; /* Placeholder background color for better visibility */
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
+  display: block;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-image:hover {
+  transform: scale(1.1);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal img {
+  max-width: 100%; /* Ensure image fits within modal */
+  max-height: 80vh; /* Set max height to 80% of the viewport height */
+  height: auto; /* Maintain aspect ratio */
+  width: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure the image scales without cropping */
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #ccc;
+}
+
+/* Responsive Media Queries */
+
+/* For tablets and smaller desktops */
+@media screen and (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+/* For mobile phones with a maximum of 2 images per row */
+@media screen and (max-width: 480px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    grid-gap: 10px; /* Reduce gap between items */
+  }
+
+  .container-gallery {
+    padding: 10px;
+  }
+
+  .gallery-item {
+    padding: 0;
+    height: 150px; /* Adjust height for smaller screens to maintain consistency */
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and fill the container */
+    transition: none; /* Disable hover effect on mobile */
+  }
+
+  .modal img {
+    max-width: 100%;
+    max-height: 70vh;
+  }
+}
