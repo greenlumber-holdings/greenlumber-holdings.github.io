@@ -15,4 +15,4 @@ Allow: /
 
 
 # Sitemap location
-Sitemap: https://greenlumberholdings.co.za/sitemap.xml
+Sitemap: https://www.greenlumberholdings.co.za/sitemap.xml
